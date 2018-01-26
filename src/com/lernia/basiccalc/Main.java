@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
 	private static Scanner sc;
-	private enum Raknesätt {plus, minus, division, multi}
+	private enum calculate {plus, minus, division, multi}
 	
 	public static void main(String[] args) {
 		
@@ -14,7 +14,7 @@ public class Main {
 		String str = "";
 		int second = 0;
 		
-		System.out.println("Skriv din beräkning (x <räknesätt> y) : ");
+		System.out.println("Type your calculation (x <arithmetic> y) : ");
 		if(sc.hasNext()) {
 			first = sc.nextInt();
 			str = sc.next();
@@ -26,27 +26,48 @@ public class Main {
 		
 	}
 	
-	private static void calc(int first, Raknesätt rs, int second) {
-		System.out.println(rs.toString());
+	private static void calc(int first, calculate rs, int second) {
+		
+		int answer = 0;
+		
+		if (rs.equals(calculate.plus)) {
+			answer = first+second;
+			System.out.println(answer);
+			
+		} else if (rs.equals(calculate.minus)) {
+			answer = first-second;
+			System.out.println(answer);
+			
+		} else if (rs.equals(calculate.division)) {
+			answer = first/second;
+			System.out.println(answer);
+			
+		} else if (rs.equals(calculate.multi)) {
+			answer = first*second;
+			System.out.println(answer);
+			
+		} else {
+			System.out.println("Error.");
+		}
 
 	}
 	
-	private static Raknesätt setArithmetic(String str) {
+	private static calculate setArithmetic(String str) {
 		
-		Raknesätt rs;
+		calculate rs;
 		
 		switch(str) {
 		case "+":
-			rs = Raknesätt.plus;
+			rs = calculate.plus;
 			return rs;
 		case "-":
-			rs = Raknesätt.minus;
+			rs = calculate.minus;
 			return rs;
 		case "/":
-			rs = Raknesätt.division;
+			rs = calculate.division;
 			return rs;
 		case "*":
-			rs = Raknesätt.multi;
+			rs = calculate.multi;
 			return rs;
 		}
 		
