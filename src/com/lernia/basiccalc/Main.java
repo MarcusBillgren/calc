@@ -2,6 +2,7 @@ package com.lernia.basiccalc;
 
 import java.util.Scanner;
 
+// TODO: Add try-catch.
 public class Main {
 
 	private static Scanner sc;
