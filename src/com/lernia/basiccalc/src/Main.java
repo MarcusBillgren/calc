@@ -1,8 +1,8 @@
 package com.lernia.basiccalc;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-// TODO: Add try-catch.
 public class Main {
 
 	private static Scanner sc;
@@ -10,19 +10,50 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		sc = new Scanner(System.in);
-		int first = 0;
-		String str = "";
-		int second = 0;
+		boolean bool = true;
 		
-		System.out.println("Type your calculation (x <arithmetic> y) : ");
-		if(sc.hasNext()) {
-			first = sc.nextInt();
-			str = sc.next();
-			second = sc.nextInt();
-		}
+		while (bool = true) {
+			
+			sc = new Scanner(System.in);
+			int first = 0;
+			String str = "";
+			int second = 0;
+			
+			System.out.println("Type your calculation (x <arithmetic> y) : ");
+			if(sc.hasNext()) {
+				
+				try {
+					first = sc.nextInt();
+				} 
+				catch (InputMismatchException a) 
+				{
+					System.out.println("Please, insert only numbers.");
+				}
+				
+				try {
+					str = sc.next();
+				} 
+				catch (InputMismatchException a) 
+				{
+					System.out.println("Please, insert only arithmetic symbols: '*', '/', '+' or '-'.");
+				}
+				
+				
+				try {
+					second = sc.nextInt();
+				} 
+				catch (InputMismatchException a) 
+				{
+					System.out.println("Please, insert only numbers.");
+				}
+				
+			}
 
-		calc(first, setArithmetic(str), second);
+			calc(first, setArithmetic(str), second);
+			
+		}
+		
+
 
 		
 	}
