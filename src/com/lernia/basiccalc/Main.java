@@ -10,19 +10,29 @@ public class Main {
 	public static void main(String[] args) {
 		
 		sc = new Scanner(System.in);
-		int first = 0;
-		String str = "";
-		int second = 0;
+		int first;
+		String str;
+		int second;
 		
-		System.out.println("Type your calculation (x <arithmetic> y) : ");
-		if(sc.hasNext()) {
-			first = sc.nextInt();
-			str = sc.next();
-			second = sc.nextInt();
+		while (true) {
+			try {
+
+				System.out.println("Type your calculation (x <arithmetic> y) : ");
+				if (sc.hasNext()) {
+					first = sc.nextInt();
+					str = sc.next();
+					second = sc.nextInt();
+
+					calc(first, setArithmetic(str), second);
+				} else {
+					break;
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 		}
-
-		calc(first, setArithmetic(str), second);
-
 		
 	}
 	
