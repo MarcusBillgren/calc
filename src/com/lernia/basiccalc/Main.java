@@ -39,22 +39,23 @@ public class Main {
 	private static void calc(int first, calculate rs, int second) {
 		
 		int answer = 0;
+		String info = "The answer is: ";
 		
 		if (rs.equals(calculate.plus)) {
 			answer = first+second;
-			System.out.println(answer);
+			System.out.println(info + answer);
 			
 		} else if (rs.equals(calculate.minus)) {
 			answer = first-second;
-			System.out.println(answer);
+			System.out.println(info + answer);
 			
 		} else if (rs.equals(calculate.division)) {
 			answer = first/second;
-			System.out.println(answer);
+			System.out.println(info + answer);
 			
 		} else if (rs.equals(calculate.multi)) {
 			answer = first*second;
-			System.out.println(answer);
+			System.out.println(info + answer);
 			
 		} else {
 			System.out.println("Error.");
